@@ -1,0 +1,35 @@
+<section class="main mb-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">{{title}}</h1>
+                <ul class="nav nav-tabs">
+                  <li class="nav-item" (click)="onSelect('all')">
+                    <span class="nav-link" [ngClass]="{'active': local === 'all' }">All</span>
+                  </li>
+                  <li class="nav-item" (click)="onSelect('manila')">
+                    <span class="nav-link" [ngClass]="{'active': local === 'manila' }">Manila</span>
+                  </li>
+                  <li class="nav-item" (click)="onSelect('tokyo')">
+                    <span class="nav-link" [ngClass]="{'active': local === 'tokyo' }">Tokyo</span>
+                  </li>
+                </ul>
+                <div class="card-deck">
+                    <div class="col-sm-4 {{member.location | lowercase}}" *ngFor="let member of members" [ngClass]="isActive(member.location) ? 'd-block' : 'd-none'">
+                        <div class="card text-center">
+                          <div class="card-body">
+                            <div class="member mb-3 mt-3 mx-auto">
+                            <img src="{{member.image}}" alt="{{member.name}}" class="rounded-circle">
+                            </div>
+                            <h5 class="card-title mb-0">{{member.name}}</h5>
+                            <p class="card-text text-muted">{{member.title}}</p>
+                            <p class="font-weight-light">{{member.description}}</p>
+                            <button type="button" class="btn btn-outline-secondary btn-sm">More info</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,94 @@
+@import './variables';
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700');
+
+/*GENERAL*/
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+header {
+    nav {
+        font-size: 14px;
+        font-weight: 300;
+        .navbar-brand {
+            img {
+                max-width: 114px;
+            }
+            .badge {
+                vertical-align: top;
+                font-weight: 300;
+                font-size: 11px;
+                background: none;
+            }
+        }
+    }
+}
+
+footer {
+    font-size: 14px;
+    img {
+        max-width: 80px;
+        opacity: 0.25;
+    }
+}
+
+#gg-content {
+    .jumbotron {
+        margin: 0;
+        border-radius: 0;
+        text-align: center;
+        background-image: url(../assets/images/wall@2x.png);
+        background-size: 1024px;
+        background-repeat: no-repeat;
+        background-position: center 95%;
+        padding-bottom: 320px;
+        .container {
+            max-width: 768px;
+            h1, .lead {
+                font-weight: 100;
+            }
+        }
+    }
+    .main {
+        .card {
+            border: none;
+            .card-body {
+                position: relative;
+                .member {
+                    position: relative;
+                    max-width: 150px;
+                }
+                .badge-success {
+                    position: absolute;
+                    right: 1.25rem;
+                    top: 1.25rem;
+                }
+            }
+        }
+    }
+    .stats {
+        .fa {
+            font-size: 32px;
+            color: $gg-lighter;
+            display: block;
+        }
+    }
+}
+
+/*BACKGROUNDS*/
+
+.bg-gengo-dark {
+    background-color: $gg-brown;
+}
+.bg-gengo-green {
+    background-color: $gg-green;
+}
