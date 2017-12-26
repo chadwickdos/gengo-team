@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
         .subscribe(data => {
           for (let i = 0, len = data['feed']['entry'].length; i < len; i++) {
             if (data['feed']['entry'][i].gsx$new.$t && c < 3) {
-            team[c] = { name: data['feed']['entry'][i].gsx$name.$t, 
+            team[c] = { id: i,
+                        name: data['feed']['entry'][i].gsx$name.$t, 
                         title: data['feed']['entry'][i].gsx$title.$t,
                         location: data['feed']['entry'][i].gsx$location.$t,
                         image: data['feed']['entry'][i].gsx$image.$t,
@@ -38,7 +39,6 @@ export class HomeComponent implements OnInit {
           }
           this.newest = team;
           console.log(this.newest);
-          // console.log(data['feed']);
         });
     this.http.get('https://spreadsheets.google.com/feeds/list/1dRyZMjUYXShOEYGGFDcK-g_6srBFVF8nPv2dnJiJ06c/2/public/values?alt=json')
         .subscribe(data => {

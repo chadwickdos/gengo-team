@@ -14,11 +14,16 @@ export class TeamComponent implements OnInit {
   constructor(private http: HttpClient){ }
 
   ngOnInit(): void {
+    this.getTeam();
+  }
+
+  getTeam(): void {
     let team = [];
     this.http.get('https://spreadsheets.google.com/feeds/list/1dRyZMjUYXShOEYGGFDcK-g_6srBFVF8nPv2dnJiJ06c/1/public/values?alt=json')
         .subscribe(data => {
           for (let i = 0, len = data['feed']['entry'].length; i < len; i++) {
-            team[i] = { name: data['feed']['entry'][i].gsx$name.$t, 
+            team[i] = { id: i,
+                        name: data['feed']['entry'][i].gsx$name.$t, 
                         title: data['feed']['entry'][i].gsx$title.$t,
                         location: data['feed']['entry'][i].gsx$location.$t,
                         image: data['feed']['entry'][i].gsx$image.$t,
@@ -27,10 +32,9 @@ export class TeamComponent implements OnInit {
           }
           this.members = team;
           console.log(this.members);
-          console.log(data['feed']);
         });
   }
-
+ 
   isActive(loc) {
     if (this.local === loc.toLowerCase() || this.local === 'all') {
       return true;

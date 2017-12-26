@@ -1,3 +1,24 @@
-<p>
-  info works!
-</p>
+<section class="main mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card-deck">
+                <div class="card mx-auto">
+                  <div class="card-body">
+                    <img src="{{member.cover}}" alt="{{member.name}}" class="d-block mb-3"/>
+                    <h4 class="card-title">{{member.name}}</h4>
+                    <p><span class="badge badge-info">{{member.title}}</span></p>
+                    <p class="card-text font-weight-light">{{member.info}}</p>
+                     <button (click)="goBack()" class="btn btn-outline-secondary btn-sm">Go Back</button>
+                  </div>
+                </div>
+                </div>
+
+<!--                 <h1>{{member.name}}</h1>
+                <p><span class="badge badge-info">{{member.title}}</span></p>
+                <p>{{member.info}}</p>
+                 -->
+            </div>
+        </div>
+    </div>
+</section>
