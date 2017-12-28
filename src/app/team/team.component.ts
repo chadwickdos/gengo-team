@@ -7,11 +7,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent implements OnInit {
-  title = 'The Team';
-  members = [];
-  local = 'all';
+  title: string;
+  members: Object[];
+  local: string;
 
-  constructor(private http: HttpClient){ }
+  constructor(private http: HttpClient){ 
+    this.title = 'The Team';
+    this.local = 'all';
+  }
 
   ngOnInit(): void {
     this.getTeam();
@@ -42,7 +45,7 @@ export class TeamComponent implements OnInit {
     return false;
   }
 
-  onSelect(select) {
+  onSelect(select): void {
     this.local = select;
   }
 

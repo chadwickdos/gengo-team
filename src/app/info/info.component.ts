@@ -9,14 +9,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./info.component.scss']
 })
 export class InfoComponent implements OnInit {
-  id = 0;
-  member: any = [];
+  id: number;
+  member: Object;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private http: HttpClient
-  ) { }
+  ) { 
+    this.id = 0;
+  }
 
   ngOnInit(): void {
     this.getInfo();
@@ -24,7 +26,6 @@ export class InfoComponent implements OnInit {
 
   getInfo(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
-    let team = [];
     this.http.get('https://spreadsheets.google.com/feeds/list/1dRyZMjUYXShOEYGGFDcK-g_6srBFVF8nPv2dnJiJ06c/1/public/values?alt=json')
         .subscribe(data => {
         this.member = { id: this.id,

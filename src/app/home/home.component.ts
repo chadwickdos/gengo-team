@@ -7,15 +7,22 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  title = 'Gengo <strong>Engineering</strong>';
-  text = 'This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.';
-  projects = '0';
-  commits = '1';
-  coffee = '2';
-  members = '3';
-  newest = [];
+  title: string;
+  text: string;
+  projects: string;
+  commits: string;
+  coffee: string;
+  members: string;
+  newest: Object[];
 
-  constructor(private http: HttpClient){ }
+  constructor(private http: HttpClient){ 
+    this.title = 'Gengo <strong>Engineering</strong>';
+    this.text = 'This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.';
+    this.projects = '0';
+    this.commits = '1';
+    this.coffee = '2';
+    this.members = '3';
+  }
 
   ngOnInit(): void {
     let team = [];
